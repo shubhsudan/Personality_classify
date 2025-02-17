@@ -8,11 +8,20 @@ import streamlit as st
 import numpy as np
 import joblib
 
-# Get the absolute path of the current directory
-current_dir = os.path.dirname(os.path.abspath(__file__))
+# Get current working directory
+current_dir = os.getcwd()
+st.write(f"📁 Current working directory: {current_dir}")
 
-# Define the path to the model file
+# List all files in the directory
+st.write(f"📂 Files in directory: {os.listdir(current_dir)}")
+
+# Check if model file exists
 model_path = os.path.join(current_dir, "xgboost_personality_model.pkl")
+st.write(f"🔎 Model file exists: {os.path.exists(model_path)}")
+
+if not os.path.exists(model_path):
+    st.error("🚨 Model file NOT FOUND! Ensure it is uploaded correctly.")
+
 
 # Load the trained model safely
 @st.cache_resource
