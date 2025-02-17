@@ -1,7 +1,7 @@
 
 import streamlit as st
 import numpy as np
-import joblib
+
 
 # Load the trained model
 @st.cache_resource
