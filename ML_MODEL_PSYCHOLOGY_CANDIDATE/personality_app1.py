@@ -1,6 +1,13 @@
-import joblib
+
+import os
+
+# Force install missing dependencies
+os.system("pip install joblib numpy xgboost scikit-learn pandas")
+
 import streamlit as st
 import numpy as np
+import joblib
+
 
 
 # Load the trained model
